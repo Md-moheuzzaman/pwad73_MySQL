@@ -1,0 +1,13 @@
+SELECT employeeNumber,lastName,firstName,jobTitle FROM `employees` WHERE jobTitle = 'sales Rep' AND officeCode ='3';
+
+SELECT employeeNumber,lastName,firstName,jobTitle FROM `employees` WHERE jobTitle = 'sales Rep'
+
+SELECT employeeNumber,lastName,firstName,jobTitle FROM `employees` WHERE jobTitle = 'sales Rep' AND officeCode IN (1,4);
+
+2 table data collect 
+SELECT employeeNumber, lastName, firstName, jobTitle, city, country, phone FROM employees, offices WHERE offices.officeCode = employees.officeCode
+
+SELECT employeeNumber, lastName, firstName, jobTitle, city, country, phone FROM employees, offices WHERE offices.officeCode = employees.officeCode AND offices.officeCode = 5;
+	[insert Query]
+INSERT INTO offices (officeCode,city,phone,addressLine1,addressLine2, state, country,postalCode, territory)
+VALUES ('8','Dhaka', '880154151555','Mirpur Road', 'Metro Shopping Mall','', 'Bangladesh', '1212', 'NA');
