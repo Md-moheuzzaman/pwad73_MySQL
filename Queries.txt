@@ -1,0 +1,56 @@
+SELECT employeeNumber,lastName,firstName,jobTitle FROM `employees` WHERE jobTitle = 'sales Rep' AND officeCode ='3';
+
+SELECT employeeNumber,lastName,firstName,jobTitle FROM `employees` WHERE jobTitle = 'sales Rep'
+
+SELECT employeeNumber,lastName,firstName,jobTitle FROM `employees` WHERE jobTitle = 'sales Rep' AND officeCode IN (1,4);
+
+2 table data collect 
+SELECT employeeNumber, lastName, firstName, jobTitle, city, country, phone FROM employees, offices WHERE offices.officeCode = employees.officeCode
+
+SELECT employeeNumber, lastName, firstName, jobTitle, city, country, phone FROM employees, offices WHERE offices.officeCode = employees.officeCode AND offices.officeCode = 5;
+	[insert Query]
+INSERT INTO offices (officeCode,city,phone,addressLine1,addressLine2, state, country,postalCode, territory)
+VALUES ('8','Dhaka', '880154151555','Mirpur Road', 'Metro Shopping Mall','', 'Bangladesh', '1212', 'NA');
+
+
+SELECT * FROM `products` WHERE buyPrice > 50 AND buyPrice >100;
+
+SELECT DISTINCT productLine FROM `products`;
+
+SELECT * FROM `orders` WHERE orderDate BETWEEN '2003-01-01' AND '2003-01-31';
+
+
+
+SELECT DISTINCT productVendor FROM `products`;
+
+SELECT * FROM `employees` ORDER BY lastName;
+
+SELECT * FROM `employees` ORDER BY lastName DESC;
+
+SELECT * FROM `products` ORDER BY buyPrice DESC;
+
+SELECT * FROM `employees` LIMIT 5;
+
+SELECT * FROM `employees` LIMIT 5 OFFSET 15;
+
+
+
+
+
+
+
+SELECT customers.customerNumber ,customerName, country, quantityOrdered, status FROM customers, orders, orderdetails WHERE orders.customerNumber = customers.customerNumber AND orders.orderNumber = orderdetails.orderNumber; 	
+
+SELECT * FROM `customers` WHERE country = 'France' OR country = 'Australia';
+
+SELECT * FROM `customers` WHERE country NOT IN('France','Australia') ;
+
+SELECT MIN(amount) FROM `payments`;
+SELECT MAX(amount) FROM `payments`;
+
+SELECT MAX(amount) AS 'MAX Amount' FROM `payments`;
+
+SELECT customerNumber, SUM(amount) AS 'Total Amount' FROM `payments` WHERE customerNumber = 103;
+
+
+
