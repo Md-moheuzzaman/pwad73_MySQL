@@ -1,3 +1,4 @@
+(24-10-2026)
 SELECT employeeNumber,lastName,firstName,jobTitle FROM `employees` WHERE jobTitle = 'sales Rep' AND officeCode ='3';
 
 SELECT employeeNumber,lastName,firstName,jobTitle FROM `employees` WHERE jobTitle = 'sales Rep'
@@ -20,7 +21,7 @@ SELECT DISTINCT productLine FROM `products`;
 SELECT * FROM `orders` WHERE orderDate BETWEEN '2003-01-01' AND '2003-01-31';
 
 
-
+(25-10-2026)
 SELECT DISTINCT productVendor FROM `products`;
 
 SELECT * FROM `employees` ORDER BY lastName;
@@ -38,8 +39,8 @@ SELECT * FROM `employees` LIMIT 5 OFFSET 15;
 
 
 
-
-SELECT customers.customerNumber ,customerName, country, quantityOrdered, status FROM customers, orders, orderdetails WHERE orders.customerNumber = customers.customerNumber AND orders.orderNumber = orderdetails.orderNumber; 	
+SELECT customers.customerNumber ,customerName, country, quantityOrdered, status FROM customers, orders, orderdetails 
+WHERE orders.customerNumber = customers.customerNumber AND orders.orderNumber = orderdetails.orderNumber; 	
 
 SELECT * FROM `customers` WHERE country = 'France' OR country = 'Australia';
 
@@ -51,6 +52,34 @@ SELECT MAX(amount) FROM `payments`;
 SELECT MAX(amount) AS 'MAX Amount' FROM `payments`;
 
 SELECT customerNumber, SUM(amount) AS 'Total Amount' FROM `payments` WHERE customerNumber = 103;
+
+
+(26-10-2026)
+UPDATE employees SET firstName = 'Nasir', lastName = 'Uddin' WHERE employeeNumber = '1102';
+
+UPDATE employees SET firstName = 'Touhidur', lastName = 'Islam', email = 'touhid@gmail.com' WHERE employeeNumber = '1002';
+
+UPDATE employees SET officeCode = '8' WHERE officeCode = '2';
+
+DELETE FROM employees WHERE employeeNumber = '1088';
+
+SELECT customerName, addressLine1, addressLine2 FROM customers WHERE addressLine2 IS NULL;
+SELECT customerName, addressLine1, addressLine2 FROM customers WHERE addressLine2 IS NOT NULL;
+
+SELECT contactLastName FROM customers WHERE contactLastName LIKE '%Fe%';
+
+SELECT customers.customerNumber, customerName, country, amount FROM customers INNER JOIN payments WHERE payments.customerNumber = customers.customerNumber;
+SELECT customers.customerNumber, customerName, country, amount FROM customers, payments WHERE payments.customerNumber = customers.customerNumber;
+
+SELECT customers.customerNumber, customerName, country, amount FROM customers LEFT JOIN payments ON payments.customerNumber = customers.customerNumber;
+
+SELECT country, COUNT(customerNumber) FROM customers GROUP BY country;
+
+SELECT
+
+
+
+
 
 
 
